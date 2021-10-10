@@ -37,28 +37,6 @@ const CryptoDetails = () => {
         { title: 'Circulating Supply', value: `$ ${millify(cryptoDetails.circulatingSupply)}`, icon: <ExclamationCircleOutlined /> },
       ];  
 
-    // return (
-    //     <Col classname="coin-detail-container">
-    //         <Col className="coin-heading-container">
-    //             <Title level={2} classname="coin-name">
-    //                 {cryptoDetails.name} ({cryptoDetails.slug}) Price
-    //             </Title>
-    //             <p>
-    //                 {cryptoDetails.name} live price in US dollars
-    //                 View value statistics, market cap and supply.
-    //             </p>
-    //         </Col>
-    //         <Select 
-    //             defaultValue="7d" 
-    //             className="select-timeperiod"
-    //             placeholder="Select Time Period"
-    //             onChange={(value) => setTimePeriod(value)}
-    //         >
-    //             {time.map((date) => <Option key={date}>{date}</Option>)}
-    //         </Select>
-    //     </Col>
-    // )
-
     return(
         <Col className="coin-detail-container">
             <Col className="coin-heading-container">
@@ -76,8 +54,30 @@ const CryptoDetails = () => {
                 placeholder="Select Time Period"
                 onChange={(value) => setTimePeriod(value)}
             >
-
+                {time.map((date) => <Option key={date}>{date}</Option>)}
             </Select>
+            {/* line chart... */}
+            <Col className="stats-container">
+                <Col className="coin-value-statistics">
+                    <Col className="coin-value-statistics-heading">
+                        <Title level={3} className="coin-details-heading">
+                            {cryptoDetails.name} Value Statistics
+                        </Title>
+                        <p>
+                            An overview showing the stats of {cryptoDetails.name}
+                        </p>
+                    </Col>
+                    {stats.map(({ icon, title, value }) => (
+                        <Col className="coin-stats">
+                            <Col className="coin-stats-name">
+                                <Text>{icon}</Text>
+                                <Text>{title}</Text>
+                            </Col>
+                            <Text className="stats">{value}</Text>
+                        </Col>
+                    ))}
+                </Col>
+            </Col>
         </Col>
     )
 }
