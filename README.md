@@ -9,6 +9,8 @@ A cryptocurrency web application using the CoinRanking API to show global crypto
 ## Changes to make
 - [ ] Use CoinGecko API rather than CoinRankings API
 - [ ] Replace Bing Search API with Google Search API
+- [ ] Add Portfolio page
+- [ ] Add Watchlist page
 - [ ] Style changes (navbar, color scheme, layout)
 
 
